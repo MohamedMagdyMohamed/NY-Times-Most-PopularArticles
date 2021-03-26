@@ -13,6 +13,8 @@ buildscript {
 
         ktlint_version = '9.4.1'
         detekt_version = '1.14.2'
+
+        nav_version = '2.3.1'
     }
 
     repositories {
