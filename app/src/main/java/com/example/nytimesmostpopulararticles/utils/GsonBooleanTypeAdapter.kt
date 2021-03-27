@@ -16,8 +16,12 @@ class GsonBooleanTypeAdapter : JsonDeserializer<Boolean> {
         if ((json as JsonPrimitive).isBoolean) {
             return json.getAsBoolean()
         }
+        return deSerializeBoolean(json)
+    }
+
+    private fun deSerializeBoolean(json: JsonPrimitive): Boolean? {
         if (json.isString) {
-            val jsonValue = json.getAsString()
+            val jsonValue = json.asString
             return when {
                 jsonValue.equals("true", ignoreCase = true) -> {
                     true
@@ -30,7 +34,7 @@ class GsonBooleanTypeAdapter : JsonDeserializer<Boolean> {
                 }
             }
         }
-        return when (json.getAsInt()) {
+        return when (json.asInt) {
             0 -> false
             1 -> true
             else -> null

@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nytimesmostpopulararticles.R
 import com.example.nytimesmostpopulararticles.databinding.FragmentArticlesListBinding
 import com.example.nytimesmostpopulararticles.ui.base.BaseFragment
-import com.example.nytimesmostpopulararticles.utils.recyclerview.VerticalSpaceItemDecoration
 import com.example.nytimesmostpopulararticles.utils.recyclerview.OnItemClickListener
+import com.example.nytimesmostpopulararticles.utils.recyclerview.VerticalSpaceItemDecoration
 import com.example.nytimesmostpopulararticles.utils.viewsextension.autoCleared
 import com.example.nytimesmostpopulararticles.utils.viewsextension.getDimen
 import com.example.nytimesmostpopulararticles.utils.viewsextension.hide
@@ -57,13 +57,15 @@ class ArticlesListFragment : BaseFragment() {
     private fun setupRecycleView() {
         binding.rvArticles.adapter = articlesAdapter
         binding.rvArticles.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvArticles.addItemDecoration(VerticalSpaceItemDecoration(getDimen(R.dimen.vertical_spacing_16dp).toInt()))
+        binding.rvArticles.addItemDecoration(
+            VerticalSpaceItemDecoration(getDimen(R.dimen.vertical_spacing_16dp).toInt())
+        )
     }
 
     override fun observeViewModel() {
-        viewModel.articlesListResultLiveData.observe(viewLifecycleOwner, { result ->
+        viewModel.articlesListResultLiveData.observe(viewLifecycleOwner) { result ->
             handleFetchArticlesList(result)
-        })
+        }
     }
 
     private fun handleFetchArticlesList(result: Result<List<ViewedArticle>>?) {
@@ -91,5 +93,4 @@ class ArticlesListFragment : BaseFragment() {
     override fun hideProgress() {
         binding.pbArticles.hide()
     }
-
 }

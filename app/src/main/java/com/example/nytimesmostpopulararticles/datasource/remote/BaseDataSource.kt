@@ -5,7 +5,7 @@ import com.example.nytimesmostpopulararticles.vo.Result
 import retrofit2.HttpException
 import retrofit2.Response
 
-abstract class BaseDataSource {
+open class BaseDataSource {
 
     protected suspend fun <T> getResult(call: suspend () -> Response<T>): Result<T> {
         return try {
@@ -15,7 +15,6 @@ abstract class BaseDataSource {
             } else {
                 Result.Error(RequestErrorHandler.getRequestError(HttpException(response)))
             }
-
         } catch (e: Exception) {
             Result.Error(RequestErrorHandler.getRequestError(e))
         }

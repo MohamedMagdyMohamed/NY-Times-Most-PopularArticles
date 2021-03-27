@@ -16,7 +16,6 @@ abstract class BaseFragment : Fragment() {
     }
 
     open fun observeViewModel() {
-
     }
 
     open fun handleErrorResponse(error: ResultException) {
