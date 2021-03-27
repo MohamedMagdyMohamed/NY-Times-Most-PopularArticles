@@ -3,7 +3,7 @@ package com.example.nytimesmostpopulararticles.vo
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
-import java.util.*
+import java.util.Date
 
 @Parcelize
 data class ViewedArticle(
@@ -26,7 +26,8 @@ data class ViewedArticle(
     @SerializedName("geo_facet") val geoFacet: List<String>,
     val media: List<Media>,
     val uri: String
-): Parcelable {
+) : Parcelable {
+
     fun getImageUrl(): String {
         if (media.isNotEmpty() && media[0].mediaMetadata.isNotEmpty()) {
             return media[0].mediaMetadata[media[0].mediaMetadata.size - 1].url

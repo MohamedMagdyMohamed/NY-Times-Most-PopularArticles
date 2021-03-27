@@ -1,6 +1,5 @@
 package com.example.nytimesmostpopulararticles.api
 
-import android.util.Log
 import com.example.nytimesmostpopulararticles.R
 import com.example.nytimesmostpopulararticles.api.response.BaseResponse
 import com.google.gson.Gson
@@ -29,7 +28,6 @@ object RequestErrorHandler {
             else -> {
                 val message = throwable.message
                 if (message != null) {
-                    Log.d("DEEE", "m : " + message)
                     ResultException.ApiError(message = message)
                 } else {
                     ResultException.Unexpected(R.string.error_unexpected_message)

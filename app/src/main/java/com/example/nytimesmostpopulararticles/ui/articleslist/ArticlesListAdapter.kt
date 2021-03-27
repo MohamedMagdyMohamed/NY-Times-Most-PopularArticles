@@ -12,13 +12,6 @@ class ArticlesListAdapter(
     onItemClickListener: OnItemClickListener<ViewedArticle>
 ) : BaseRecyclerViewAdapter<ViewedArticle, BaseViewHolder>(ArrayList(), onItemClickListener) {
 
-    override fun bindCurrentItem(
-        holder: BaseViewHolder,
-        currentItem: ViewedArticle,
-        position: Int
-    ) {
-    }
-
     override fun getItemViewHolder(
         inflater: LayoutInflater,
         parent: ViewGroup,

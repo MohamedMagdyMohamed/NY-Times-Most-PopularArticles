@@ -3,7 +3,7 @@ package com.example.nytimesmostpopulararticles.utils.viewsextension
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.nytimesmostpopulararticles.utils.DateUtils
-import java.util.*
+import java.util.Date
 
 @BindingAdapter("date", "format", requireAll = false)
 fun TextView.formatDate(

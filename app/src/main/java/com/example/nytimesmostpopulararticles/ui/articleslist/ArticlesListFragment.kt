@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nytimesmostpopulararticles.R
 import com.example.nytimesmostpopulararticles.databinding.FragmentArticlesListBinding
 import com.example.nytimesmostpopulararticles.ui.base.BaseFragment
-import com.example.nytimesmostpopulararticles.utils.VerticalSpaceItemDecoration
+import com.example.nytimesmostpopulararticles.utils.recyclerview.VerticalSpaceItemDecoration
 import com.example.nytimesmostpopulararticles.utils.recyclerview.OnItemClickListener
 import com.example.nytimesmostpopulararticles.utils.viewsextension.autoCleared
 import com.example.nytimesmostpopulararticles.utils.viewsextension.getDimen

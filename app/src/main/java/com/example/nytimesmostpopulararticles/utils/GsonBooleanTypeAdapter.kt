@@ -9,7 +9,8 @@ import java.lang.reflect.Type
 class GsonBooleanTypeAdapter : JsonDeserializer<Boolean> {
 
     override fun deserialize(
-        json: JsonElement, typeOfT: Type?,
+        json: JsonElement,
+        typeOfT: Type?,
         context: JsonDeserializationContext?
     ): Boolean? {
         if ((json as JsonPrimitive).isBoolean) {

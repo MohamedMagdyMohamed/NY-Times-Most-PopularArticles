@@ -31,7 +31,8 @@ abstract class BaseRecyclerViewAdapter<T, VH : BaseViewHolder>(
         holder.viewBinding.executePendingBindings()
     }
 
-    abstract fun bindCurrentItem(holder: VH, currentItem: T, position: Int)
+    open fun bindCurrentItem(holder: VH, currentItem: T, position: Int) {
+    }
 
     abstract fun getItemViewHolder(inflater: LayoutInflater, parent: ViewGroup, viewType: Int): VH
 

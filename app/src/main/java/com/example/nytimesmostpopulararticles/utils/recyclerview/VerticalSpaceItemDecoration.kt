@@ -1,4 +1,4 @@
-package com.example.nytimesmostpopulararticles.utils
+package com.example.nytimesmostpopulararticles.utils.recyclerview
 
 import android.graphics.Rect
 import android.view.View
@@ -16,5 +16,4 @@ class VerticalSpaceItemDecoration(
     ) {
         outRect.bottom = verticalSpaceHeight
     }
-
 }
