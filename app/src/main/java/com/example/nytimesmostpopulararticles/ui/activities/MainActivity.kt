@@ -9,6 +9,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.nytimesmostpopulararticles.R
 import com.example.nytimesmostpopulararticles.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,5 +35,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    fun showMessage(message: String?) {
+        if (!message.isNullOrEmpty()) {
+            Snackbar.make(findViewById(R.id.clMain), message, Snackbar.LENGTH_LONG)
+                .show()
+        }
+    }
+
+    fun showMessage(messageResId: Int) {
+        showMessage(getString(messageResId))
     }
 }
