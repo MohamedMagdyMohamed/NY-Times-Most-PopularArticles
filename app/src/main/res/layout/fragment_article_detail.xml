@@ -21,25 +21,34 @@
             android:layout_height="@dimen/img_size_70dp"
             android:layout_marginStart="@dimen/margin_start"
             android:layout_marginTop="@dimen/margin_top"
-            tools:src="@drawable/ic_broken_image"
+            app:layout_constraintBottom_toBottomOf="@id/barrier"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             bind:imageUrl="@{viewedArticle.imageUrl}"
             bind:isCircular="@{true}"
-            bind:placeholder="@{@drawable/ic_broken_image}" />
+            bind:placeholder="@{@drawable/ic_broken_image}"
+            tools:src="@drawable/ic_broken_image" />
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="@dimen/dimen_0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_horizontal_8dp"
+            android:layout_marginTop="@dimen/margin_top"
             android:text="@{viewedArticle.title}"
             android:textAppearance="?textAppearanceHeadline6"
-            app:layout_constraintBottom_toBottomOf="@id/ivArticle"
+            app:layout_constraintBottom_toBottomOf="@id/barrier"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivArticle"
-            app:layout_constraintTop_toTopOf="@id/ivArticle"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Title" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="ivArticle, tvTitle" />
 
         <TextView
             android:id="@+id/tvDescription"
@@ -51,7 +60,7 @@
             android:textAppearance="?textAppearanceBody1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivArticle"
+            app:layout_constraintTop_toBottomOf="@id/barrier"
             tools:text="Description" />
 
         <TextView
