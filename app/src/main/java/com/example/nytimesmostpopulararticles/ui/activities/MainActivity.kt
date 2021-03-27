@@ -3,6 +3,7 @@ package com.example.nytimesmostpopulararticles.ui.activities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -46,5 +47,9 @@ class MainActivity : AppCompatActivity() {
 
     fun showMessage(messageResId: Int) {
         showMessage(getString(messageResId))
+    }
+
+    fun replaceFragment(direction: NavDirections) {
+        navController.navigate(direction)
     }
 }

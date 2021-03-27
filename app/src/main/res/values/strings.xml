@@ -10,4 +10,9 @@
 
     <!-- Articles Fragment -->
     <string name="articles_list_fragment_title">Articles List</string>
+
+    <!-- Article Detail Fragment -->
+    <string name="article_detail_fragment_title">Article Detail</string>
+    <string name="fragment_article_detail_tv_source">Source: %s</string>
+    <string name="fragment_article_detail_tv_view_article_web">To view full article click here</string>
 </resources>

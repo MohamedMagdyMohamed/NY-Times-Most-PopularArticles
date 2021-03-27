@@ -38,7 +38,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 bind:imageUrl="@{item.imageUrl}"
                 bind:isCircular="@{true}"
-                bind:placeholder="@{@drawable/ic_broken_image}" />
+                bind:placeholder="@{@drawable/ic_broken_image}"
+                tools:src="@drawable/ic_broken_image" />
 
             <TextView
                 android:id="@+id/tvTitle"

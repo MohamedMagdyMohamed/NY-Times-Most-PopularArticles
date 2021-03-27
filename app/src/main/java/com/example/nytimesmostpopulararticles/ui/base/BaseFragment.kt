@@ -3,6 +3,8 @@ package com.example.nytimesmostpopulararticles.ui.base
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.FragmentNavigator
 import com.example.nytimesmostpopulararticles.api.ResultException
 import com.example.nytimesmostpopulararticles.ui.activities.MainActivity
 
@@ -50,5 +52,9 @@ abstract class BaseFragment : Fragment() {
 
     open fun hideProgress() {
 
+    }
+
+    fun replaceFragment(direction: NavDirections) {
+        getMainActivity()?.replaceFragment(direction)
     }
 }

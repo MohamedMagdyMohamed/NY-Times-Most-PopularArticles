@@ -45,7 +45,11 @@ class ArticlesListFragment : BaseFragment() {
     private fun setupAdapter() {
         articlesAdapter = ArticlesListAdapter(object : OnItemClickListener<ViewedArticle> {
             override fun onItemClick(item: ViewedArticle) {
-
+                val navDirection =
+                    ArticlesListFragmentDirections.actionArticlesListFragmentToArticleDetailFragment(
+                        item
+                    )
+                replaceFragment(navDirection)
             }
         })
     }
