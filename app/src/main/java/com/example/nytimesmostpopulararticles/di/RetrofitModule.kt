@@ -25,7 +25,7 @@ private fun retrofit(client: OkHttpClient) =
         .addConverterFactory(getGsonConverterFactory())
         .build()
 
-private fun getGsonConverterFactory(): Converter.Factory {
+fun getGsonConverterFactory(): Converter.Factory {
     val gsonBuilder = GsonBuilder()
     gsonBuilder.registerTypeAdapter(Boolean::class.java, GsonBooleanTypeAdapter())
     val gson = gsonBuilder.create()

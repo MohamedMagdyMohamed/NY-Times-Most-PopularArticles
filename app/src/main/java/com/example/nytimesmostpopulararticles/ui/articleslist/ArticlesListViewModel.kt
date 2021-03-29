@@ -10,6 +10,7 @@ import com.example.nytimesmostpopulararticles.vo.Result
 import com.example.nytimesmostpopulararticles.vo.ViewedArticle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ArticlesListViewModel(
     app: Application,
@@ -25,10 +26,11 @@ class ArticlesListViewModel(
         get() = _articlesListResultLiveData
 
     private fun fetchMostViewedArticlesList() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.Main) {
             _articlesListResultLiveData.postValue(Result.Loading(true))
-            val result =
+            val result = withContext(Dispatchers.IO) {
                 mostViewedArticlesRepository.fetchMostViewedArticlesList()
+            }
             if (result.isSuccess()) {
                 val userFollowResponse =
                     (result as Result.Success<MostViewedArticlesListResponse>).data?.results
