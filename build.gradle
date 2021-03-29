@@ -82,6 +82,7 @@ subprojects {
         reporters {
             reporter "plain"
             reporter "checkstyle"
+            reporter "html"
         }
         filter {
             exclude("**/generated/**")
