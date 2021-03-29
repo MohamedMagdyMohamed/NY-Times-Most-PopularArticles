@@ -9,13 +9,11 @@ import org.koin.core.context.stopKoin
 import java.io.BufferedReader
 import java.io.Reader
 
-abstract class BaseUITest {
-
+open class BaseUITest {
     /**
      * For MockWebServer instance
      */
     private lateinit var mockServer: MockWebServer
-
 
     /**
      * Default, let server be shut down
@@ -23,28 +21,29 @@ abstract class BaseUITest {
     private var mShouldStart = false
 
     @Before
-    open fun setUp(){
+    open fun setUp() {
         startMockServer(true)
     }
 
     /**
      * Helps to read input file returns the respective data in mocked call
      */
-    fun mockNetworkResponseWithFileContent(fileName: String, responseCode: Int) = mockServer.enqueue(
-
-        MockResponse()
-            .setResponseCode(responseCode)
-            .setBody(getJson(fileName)))
+    fun mockNetworkResponseWithFileContent(fileName: String, responseCode: Int) =
+        mockServer.enqueue(
+            MockResponse()
+                .setResponseCode(responseCode)
+                .setBody(getJson(fileName))
+        )
 
     /**
      * Reads input file and converts to json
      */
-    fun getJson(path : String) : String {
-        var content: String = ""
+    private fun getJson(path: String): String {
+        var content: String
         val testContext = InstrumentationRegistry.getInstrumentation().context
         val inputStream = testContext.assets.open(path)
-        val reader = BufferedReader(inputStream.reader() as Reader?)
-        reader.use { reader ->
+        val bufferedReader = BufferedReader(inputStream.reader() as Reader?)
+        bufferedReader.use { reader ->
             content = reader.readText()
         }
         return content
@@ -53,8 +52,8 @@ abstract class BaseUITest {
     /**
      * Start Mockwebserver
      */
-    private fun startMockServer(shouldStart:Boolean){
-        if (shouldStart){
+    private fun startMockServer(shouldStart: Boolean) {
+        if (shouldStart) {
             mShouldStart = shouldStart
             mockServer = MockWebServer()
             mockServer.start()
@@ -70,13 +69,13 @@ abstract class BaseUITest {
      * Stop Mockwebserver
      */
     private fun stopMockServer() {
-        if (mShouldStart){
+        if (mShouldStart) {
             mockServer.shutdown()
         }
     }
 
     @After
-    open fun tearDown(){
+    open fun tearDown() {
         //Stop Mock server
         stopMockServer()
         //Stop Koin as well

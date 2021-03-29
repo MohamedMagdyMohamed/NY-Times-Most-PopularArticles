@@ -8,7 +8,6 @@ import retrofit2.Retrofit
  * Retrofit Koin DI component for Instrumentation Testing
  */
 fun configureNetworkForInstrumentationTest(baseTestApi: String) = module {
-
     single(override = true) {
         Retrofit.Builder()
             .baseUrl(baseTestApi)
@@ -17,4 +16,3 @@ fun configureNetworkForInstrumentationTest(baseTestApi: String) = module {
     }
     factory(override = true) { get<Retrofit>().create(APIService::class.java) }
 }
-
